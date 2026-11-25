@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تنمية الذاكرة | مجلة العقل</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f2f0eb;color:#343d3a;font-family:Tajawal,sans-serif}
+
+/* الهيدر */
+header{
+ background:#fff;color:#39443f;display:flex;align-items:center;
+ justify-content:space-between;padding:14px 5%;position:sticky;
+ top:0;z-index:10;flex-wrap:wrap;gap:15px;
+ box-shadow:0 4px 20px #26352c12;border-bottom:1px solid #e8e6df
+}
+.header-brand{display:flex;align-items:center;gap:13px}
+.college-logo{width:155px;height:58px;object-fit:contain;display:block;background:white;border-radius:8px;padding:4px}
+.logo{font-size:23px;font-weight:800;color:#536d60}
+.logo span{display:block;font-size:12px;color:#9a9587;font-weight:500}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{
+ color:#59665d;text-decoration:none;font-weight:700;font-size:13px;
+ cursor:pointer;padding:9px 13px;border:1px solid #e8e6df;
+ border-radius:8px;transition:.25s
+}
+nav a:hover{background:#536d60;color:white;border-color:#536d60}
+
+/* الواجهة الرئيسية */
+.hero{
+ margin:28px auto;width:92%;height:530px;position:relative;
+ overflow:hidden;border-radius:24px;background:#263d34;
+ box-shadow:0 18px 45px #26352c20
+}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(90deg,#172c25e8 0%,#172c259c 48%,#172c2510 100%)
+}
+.hero-content{position:absolute;z-index:2;top:50%;right:8%;transform:translateY(-50%);max-width:540px;color:white}
+.eyebrow{
+ display:inline-block;color:#e6d2a9;font-weight:800;letter-spacing:1px;
+ font-size:14px;padding:8px 15px;border:1px solid #e6d2a966;border-radius:30px
+}
+.hero h1{font-size:clamp(38px,5.5vw,68px);line-height:1.25;margin:20px 0}
+.hero p{font-size:18px;line-height:2;color:#f0eee7;max-width:470px}
+button{
+ border:0;border-radius:9px;padding:13px 25px;background:#607c6b;
+ color:white;font:700 15px Tajawal;cursor:pointer;transition:.25s
+}
+button:hover{background:#b79b68;color:#263d34;transform:translateY(-2px)}
+button:disabled{opacity:.65;cursor:default;transform:none}
+
+/* الأقسام */
+.section{width:90%;max-width:1250px;margin:75px auto}
+.section-head{
+ display:flex;align-items:center;justify-content:space-between;gap:15px;
+ padding:17px 22px;margin-bottom:30px;border:1px solid #e4e0d5;
+ border-right:0;border-radius:16px 4px 16px 4px;background:linear-gradient(105deg,#fff 0%,#f3f4ee 100%);
+ box-shadow:0 8px 22px #26352c0a;position:relative
+}
+.section-head:before{content:"";position:absolute;right:0;top:15%;height:70%;width:5px;background:#b79b68;border-radius:5px}
+.section-head h2{font-size:clamp(25px,3vw,35px);color:#536d60;margin:0}
+.section-head p{color:#928f82;margin:0;font-size:14px}
+
+/* أبواب المجلة — توزيع تحريري غير متماثل */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:19px;align-items:stretch}
+.card{
+ background:#fff;overflow:hidden;position:relative;display:flex;flex-direction:column;
+ box-shadow:0 10px 28px #26352c10;transition:transform .3s,box-shadow .3s;
+ border-radius:22px;min-height:360px;border:1px solid #e7e5dc
+}
+.card:hover{transform:translateY(-7px);box-shadow:0 18px 38px #26352c1c}
+.card img{width:100%;height:190px;object-fit:cover;display:block;transition:transform .55s}
+.card:hover img{transform:scale(1.045)}
+.card-body{padding:20px 21px 23px;display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.number{
+ display:inline-block;font-size:12px;color:#fff;font-weight:800;letter-spacing:.5px;
+ padding:6px 12px;background:#718b78;border-radius:7px 7px 7px 2px
+}
+.card h3{font-size:22px;color:#536d60;margin:13px 0 8px}
+.card p{line-height:1.9;color:#77796f;min-height:55px;font-size:14px;flex:1}
+.card button{margin-top:8px}
+.card:nth-child(1){grid-column:span 2;min-height:420px;border-color:#d6dfd2}
+.card:nth-child(1) img{height:245px}
+.card:nth-child(1) .card-body{padding:23px 27px}
+.card:nth-child(1) h3{font-size:27px}
+.card:nth-child(2){grid-column:span 2;display:grid;grid-template-columns:.9fr 1.1fr;min-height:420px;background:#f4f0e7}
+.card:nth-child(2) img{height:100%;min-height:420px;order:2}
+.card:nth-child(2) .card-body{justify-content:center;padding:26px}
+.card:nth-child(2) .number{background:#b49a6b}
+.card:nth-child(3){background:#e9eee7;border-color:#dce5d9}
+.card:nth-child(3) .card-body{background:#e9eee7}
+.card:nth-child(4){background:#f4f0e7;border-color:#e8dfcd}
+.card:nth-child(4) .number{background:#b49a6b}
+.card:nth-child(5){grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;min-height:300px}
+.card:nth-child(5) img{height:100%;min-height:300px}
+.card:nth-child(5) .card-body{justify-content:center;padding:25px}
+.card:nth-child(6){grid-column:span 1;background:#edf1f3}
+.card:nth-child(6) .number{background:#788b9b}
+.card:nth-child(7){grid-column:span 1;background:#f0eaf0}
+.card:nth-child(7) .number{background:#9a7d96}
+
+/* موضوع الدماغ */
+.feature{
+ display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:center;
+ background:#fff;padding:28px;border-radius:18px;border:1px solid #e6e4da;
+ box-shadow:0 10px 30px #26352c0c
+}
+.feature img{width:100%;height:370px;object-fit:cover;border-radius:13px}
+.feature-copy{
+ position:relative;background:linear-gradient(145deg,#f3f5ef,#e9eee7);
+ border:1px solid #d9e2d6;border-right:6px solid #718b78;
+ border-radius:16px;padding:28px;box-shadow:inset 0 0 25px #718b780c
+}
+.feature-copy:before{
+ content:"معلومة تستحق المعرفة";display:inline-block;background:#fff;
+ color:#718b78;border:1px solid #dce5d8;border-radius:30px;
+ padding:7px 14px;font-size:13px;font-weight:800;margin-bottom:12px
+}
+.feature-copy h2{font-size:34px;color:#536d60;margin:8px 0 18px;line-height:1.5}
+.feature-copy p{line-height:2.1;color:#626e63;font-size:16px;margin:12px 0}
+.feature-copy button{margin-top:10px}
+
+/* القارئ الصوتي */
+.audio-reader{
+ background:#fff;border:1px solid #e5e5dc;border-radius:16px;
+ padding:30px;margin:25px 0;box-shadow:0 8px 25px #26352c0b;position:relative
+}
+.audio-reader:before{
+ content:"مساحة استماع";display:inline-block;color:#758b78;font-size:13px;
+ font-weight:800;margin-bottom:12px;padding:6px 12px;border:1px solid #dce3d9;border-radius:20px
+}
+.audio-reader h2{margin:0 0 18px;color:#536d60;font-size:27px}
+.audio-reader p{line-height:2;color:#756f68}
+.audio-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.audio-controls button{border-radius:9px}
+.audio-controls .stop{background:#edf0e9;color:#536d60}
+.reader-status{font-size:14px;color:#8b8e7e;margin-top:15px}
+.reader-text{
+ background:#f5f5ef;padding:22px;border-radius:12px;line-height:2.2;
+ color:#5e665d;border-right:4px solid #b79b68;font-size:17px;margin-top:15px
+}
+.show-text-btn{background:#edf1e9;color:#536d60;border:1px solid #dce3d9;margin-bottom:10px}
+.show-text-btn:hover{background:#536d60;color:white}
+.speed-control{
+ display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;
+ padding:14px 16px;background:#f4f6f1;border:1px solid #e1e7dc;border-radius:11px
+}
+.speed-control label{color:#536d60;font-weight:800;font-size:14px}
+.speed-control select{
+ min-width:150px;padding:10px 14px;border:1px solid #d5dfd2;
+ border-radius:8px;background:#fff;color:#536d60;font:700 14px Tajawal;outline:none;cursor:pointer
+}
+.speed-control select:focus{border-color:#718b78;box-shadow:0 0 0 3px #718b7820}
+
+/* المساعد الذكي */
+.assistant-box{
+ background:#fff;border-radius:16px;padding:32px;border:1px solid #e5e5dc;
+ box-shadow:0 8px 25px #26352c0b
+}
+.assistant-box h2{color:#536d60;margin-top:0}
+.assistant-box>p{line-height:2;color:#716f65}
+.assistant-questions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.assistant-questions button{background:#f2f4ee;color:#536d60;border:1px solid #dfe5da;padding:10px 16px}
+.assistant-questions button:hover{background:#536d60;color:#fff}
+.assistant-response{
+ background:#f5f6f1;border-radius:12px;padding:20px;line-height:2;
+ min-height:90px;color:#5e665d;margin-top:15px;border-right:4px solid #78917b
+}
+.assistant-response strong{color:#536d60}
+.assistant-disclaimer{font-size:13px;color:#8b8e7e;margin-top:12px}
+.assistant-input{
+ width:100%;padding:13px;border:1px solid #dfe2d8;border-radius:9px;
+ font:inherit;margin:10px 0
+}
+
+/* الفيديو */
+.video-box{background:#30463b;padding:30px;border-radius:17px;color:white;box-shadow:0 12px 30px #26352c20}
+.video-box iframe{width:100%;height:390px;border:0;border-radius:12px;display:block;background:#182b23}
+.video-box h3{color:#e6d2a9;font-size:24px}
+
+/* الاختبار */
+.quiz{background:#edf0e9;border-radius:15px;padding:28px;border:1px solid #dfe4d9}
+.quiz label{display:block;margin:14px 0}
+.quiz input[type=radio]{accent-color:#607c6b}
+.answer{font-weight:700;line-height:1.8}
+.quiz-progress{height:10px;background:#dce3d8;border-radius:20px;margin:15px 0 25px;overflow:hidden}
+.quiz-progress div{height:100%;width:0;background:#718b78;border-radius:20px;transition:.3s}
+.answer-option{
+ display:block;width:100%;margin:10px 0;text-align:right;border-radius:9px;
+ background:#fff;color:#536257;border:1px solid #dfe5da
+}
+.answer-option:hover{background:#e2eade}
+.answer-option.correct{background:#568b70;color:#fff}
+.answer-option.wrong{background:#b66c79;color:#fff}
+.quiz-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.result-card{background:#fff;border-radius:12px;padding:20px;margin-top:20px}
+.result-card h3{color:#536d60}
+#quizAnswers{margin-top:15px}
+
+/* ألعاب الذاكرة */
+.games-intro{line-height:2;color:#697268;font-size:16px;margin-bottom:25px}
+.memory-game{
+ background:#fff;border:1px solid #e0e5dc;border-radius:16px;
+ padding:25px;margin:25px 0;box-shadow:0 6px 20px #26352c0a
+}
+.memory-game h2{color:#536d60;margin-top:0;font-size:25px}
+.game-tag{
+ display:inline-block;padding:6px 13px;border-radius:20px;
+ background:#edf1e9;color:#718b78;font-size:13px;font-weight:800;margin-bottom:12px
+}
+.game-instruction{color:#77796f;line-height:1.9;margin:8px 0 18px}
+.game-display{
+ min-height:105px;display:flex;justify-content:center;align-items:center;
+ flex-wrap:wrap;gap:12px;background:#f1f4ed;border:1px dashed #cbd8c8;
+ border-radius:13px;padding:20px;margin:15px 0;text-align:center
+}
+.game-display strong{color:#536d60;font-size:32px;letter-spacing:5px}
+.game-input{
+ width:100%;padding:14px;border:1px solid #d7dfd3;border-radius:9px;
+ font:16px Tajawal;margin:12px 0;outline:none
+}
+.game-input:focus{border-color:#718b78;box-shadow:0 0 0 3px #718b7818}
+.game-result{
+ background:#f5f6f1;border-right:4px solid #b79b68;padding:15px;
+ border-radius:9px;line-height:2;margin-top:15px;color:#536257;min-height:25px
+}
+.game-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.game-secondary{background:#edf0e9;color:#536d60}
+.game-secondary:hover{background:#536d60;color:#fff}
+.picture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
+.picture-tile{
+ background:#fff;border:1px solid #dfe5da;border-radius:12px;
+ padding:13px 8px;text-align:center;color:#536d60;min-height:105px;
+ display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px
+}
+.picture-tile .picture-emoji{font-size:37px;line-height:1.4}
+.picture-tile span:last-child{font-size:13px;font-weight:700}
+.game-score{color:#718b78;font-weight:800;margin-top:12px}
+
+/* مفكرة العقل */
+.journal-intro{
+ background:#f1f4ed;border-right:4px solid #718b78;padding:18px;
+ border-radius:10px;line-height:2;color:#626e63;margin:20px 0
+}
+.journal-card{
+ background:#fff;border:1px solid #e0e5dc;border-radius:14px;
+ padding:22px;margin:20px 0
+}
+.journal-card h2{color:#536d60;margin-top:0}
+.journal-card p{color:#77796f;line-height:1.8}
+.journal-card textarea{
+ width:100%;min-height:105px;padding:14px;border:1px solid #d7dfd3;
+ border-radius:10px;font:16px Tajawal;resize:vertical;outline:none;margin:8px 0 12px
+}
+.journal-card textarea:focus{border-color:#718b78;box-shadow:0 0 0 3px #718b7818}
+.journal-saved{
+ background:#f5f6f1;border-radius:12px;padding:17px;margin-top:15px;
+ border-right:4px solid #b79b68;line-height:2;overflow-wrap:anywhere
+}
+.journal-saved h3{color:#536d60;margin:0 0 8px}
+.journal-saved small{color:#8b8e7e}
+.journal-entry{background:#fff;border:1px solid #e1e5dc;border-radius:10px;padding:15px;margin:12px 0}
+.journal-entry p{white-space:pre-wrap;line-height:2;color:#5e665d}
+.journal-entry button{padding:8px 14px;font-size:13px;background:#eee9e5;color:#805e56}
+.journal-entry button:hover{background:#805e56;color:#fff}
+.empty-journal{color:#898d80;background:#f5f6f1;padding:18px;border-radius:10px;line-height:2}
+
+/* رحلتي مع الذاكرة */
+.progress-intro{
+ background:#f1f4ed;border-right:4px solid #718b78;padding:18px;
+ border-radius:10px;line-height:2;color:#626e63;margin-bottom:22px
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.stat-card{
+ background:#fff;border:1px solid #e0e5dc;border-radius:13px;
+ padding:20px 12px;text-align:center
+}
+.stat-card strong{display:block;font-size:30px;color:#536d60;margin-bottom:5px}
+.stat-card span{font-size:13px;color:#858879}
+.badges-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.badge-card{
+ background:#fff;border:1px solid #e0e5dc;border-radius:12px;
+ padding:18px;display:flex;align-items:center;gap:14px
+}
+.badge-card .badge-symbol{
+ width:48px;height:48px;border-radius:50%;display:flex;
+ align-items:center;justify-content:center;background:#edf1e9;
+ color:#718b78;font-size:22px;flex-shrink:0
+}
+.badge-card h3{margin:0 0 5px;color:#536d60;font-size:17px}
+.badge-card p{margin:0;color:#8b8e7e;font-size:13px;line-height:1.7}
+.badge-card.locked{opacity:.55;filter:grayscale(1)}
+.progress-line{height:10px;background:#e3e8df;border-radius:20px;overflow:hidden;margin:12px 0}
+.progress-line div{height:100%;background:#718b78;width:0;transition:.3s}
+
+/* صفحات القراءة */
+#reader{display:none}
+.paper{
+ background:#fff;border-radius:16px;padding:40px;
+ box-shadow:0 8px 30px #26352c12;border:1px solid #e8e7df
+}
+.paper h1,.paper h2{color:#536d60}
+.paper h1{font-size:36px}
+.paper p{font-size:17px;line-height:2.1;color:#625f57}
+.paper img{width:100%;max-height:370px;object-fit:cover;border-radius:13px;margin:15px 0}
+.note{background:#f1f4ed;border-right:4px solid #78917b;padding:18px 20px;border-radius:10px;line-height:2;margin:20px 0}
+.paper input{width:100%;padding:13px;border:1px solid #dfe2d8;border-radius:10px;font:inherit;margin:10px 0}
+.back{background:#e9eee7;color:#536d60;margin-bottom:18px}
+
+/* التذييل */
+footer{
+ background:#30463b;color:white;text-align:center;padding:45px 20px;
+ margin-top:80px;border-top:5px solid #b79b68
+}
+footer h2{color:#e6d2a9}
+footer p{color:#e3e8df;line-height:1.8}
+
+/* الشاشات الصغيرة */
+@media(max-width:900px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .feature{grid-template-columns:1fr}
+ .card:nth-child(1),.card:nth-child(2),.card:nth-child(5){grid-column:span 2}
+ .card:nth-child(2){grid-template-columns:1fr 1fr}
+ .card:nth-child(2) img{height:100%;min-height:350px}
+ .card:nth-child(5){grid-template-columns:1fr 1fr}
+ .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ header{padding:12px 4%}
+ .college-logo{width:100px;height:45px}
+ .logo{font-size:18px}
+ .logo span{font-size:10px}
+ nav{gap:6px}
+ nav a{font-size:12px;padding:7px 9px}
+ .hero{height:420px;border-radius:16px}
+ .hero-content{right:6%;left:6%}
+ .hero h1{font-size:37px}
+ .hero p{font-size:15px}
+ .section{width:92%;margin:55px auto}
+ .section-head{display:block;padding:14px}
+ .section-head p{margin-top:8px}
+ .grid{grid-template-columns:1fr;grid-auto-rows:auto}
+ .card,.card:nth-child(1),.card:nth-child(2),.card:nth-child(5),.card:nth-child(6),.card:nth-child(7){grid-column:auto;grid-row:auto;display:flex;flex-direction:column;min-height:0}
+ .card:nth-child(1) img,.card:nth-child(2) img,.card:nth-child(5) img,.card img{height:220px;min-height:220px;order:0}
+ .card:nth-child(1) h3{font-size:24px}
+ .feature{padding:20px;gap:20px}
+ .feature img{height:250px}
+ .feature-copy{padding:20px}
+ .feature-copy h2{font-size:27px}
+ .feature-copy p{font-size:15px}
+ .paper{padding:20px}
+ .paper h1{font-size:29px}
+ .audio-reader{padding:20px}
+ .audio-controls button{flex:1}
+ .speed-control{align-items:stretch;flex-direction:column}
+ .speed-control select{width:100%}
+ .video-box{padding:15px}
+ .video-box iframe{height:230px}
+ .assistant-box{padding:20px}
+ .memory-game{padding:17px}
+ .picture-grid{grid-template-columns:repeat(2,1fr)}
+ .stats-grid{grid-template-columns:repeat(2,1fr)}
+ .badges-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="header-brand">
+  <img class="college-logo" src="https://cdn.brandfetch.io/idWUP5nC56/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1790030663156" alt="شعار المؤسسة العامة للتدريب التقني والمهني">
+  <div class="logo">تنمية الذاكرة<span>مجلة المعرفة والاكتشاف</span></div>
+ </div>
+ <nav>
+  <a onclick="showHome()">الرئيسية</a>
+  <a onclick="goToSection('sections')">أبواب المجلة</a>
+  <a onclick="goToSection('audio')">القارئ الصوتي</a>
+  <a onclick="goToSection('assistant')">مساعد التعلم</a>
+  <a onclick="goToSection('video')">الفيديو</a>
+  <a onclick="goToSection('test')">اختبري نفسك</a>
+ </nav>
+</header>
+
+<main id="home">
+
+<section class="hero">
+<img src="https://upscend-aiblog-dev.s3.eu-central-1.amazonaws.com/content-images/how-can-neuroscience-motivation-learning-improve-completion.webp" alt="دماغ هولوغرافي مضيء">
+<div class="hero-content">
+<div class="eyebrow">العدد الأول · اكتشفي عالم عقلك</div>
+<h1>ذاكرتك.. عالم يستحق الاكتشاف</h1>
+<p>رحلة بين أسرار الدماغ وطرق الحفظ والتركيز. اقرئي، جرّبي، واكتشفي كيف تعمل ذاكرتك.</p>
+<button onclick="goToSection('sections')">ابدئي الرحلة</button>
+</div>
+</section>
+
+<section class="section" id="sections">
+<div class="section-head">
+<h2>أبواب المجلة</h2>
+<p>سبعة أبواب معرفية، في كل باب اكتشاف جديد</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://www.infobae.com/resizer/v2/GE3GB3BA4VBW7GRI26JE5PKII4.jpg?auth=048f525d926a5c9a9b824dc418fb1d39d7bbe742621464029ada69b904620a9b&height=900&quality=85&smart=true&width=1200" alt="الدماغ والذاكرة">
+<div class="card-body">
+<span class="number">01 — اكتشاف</span>
+<h3>اكتشفي ذاكرتك</h3>
+<p>تعرفي على أنواع الذاكرة ومراحل استقبال المعلومات وتخزينها واسترجاعها.</p>
+<button onclick="openPage('discover')">اقرئي الموضوع</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://m.economictimes.com/thumb/msid-131250790%2Cwidth-1600%2Cheight-900%2Cresizemode-4%2Cimgsize-1882933/psychology-says-students-who-top-exams-without-studying-for-hours-arent-just-gifted-but-have-one-hidden-advantage-others-ignore.jpg" alt="الدراسة وتدوين الملاحظات">
+<div class="card-body">
+<span class="number">02 — تعلّم</span>
+<h3>أسرار الحفظ</h3>
+<p>اكتشفي طرق المراجعة والربط والتلخيص التي تساعد على تذكر المعلومات.</p>
+<button onclick="openPage('secrets')">اقرئي الموضوع</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://www.echosciences-drome.fr/images/heroes/hero-cerveau-apprend.webp" alt="دماغ مضيء فوق كتاب">
+<div class="card-body">
+<span class="number">03 — تحديات</span>
+<h3>ألعاب الذاكرة</h3>
+<p>ثلاث تجارب تفاعلية لتدريب ذاكرتك: تذكّر الأرقام، وتذكّر الكلمات، واكتشاف الصورة الناقصة.</p>
+<button onclick="openPage('games')">ابدئي الألعاب</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2FbAub%2Fimage%2FGZCif4u8dDi3pVKmkQ90mX7iJQc.png" alt="كتاب ومعرفة رقمية">
+<div class="card-body">
+<span class="number">04 — رحلة معرفية</span>
+<h3>رحلة المعلومة</h3>
+<p>تابعي رحلة المعلومة من لحظة استقبالها حتى تخزينها واسترجاعها.</p>
+<button onclick="openPage('journey')">اكتشفي الرحلة</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://mdb.ad-hoc-news.de/bild/bild-2564654_1200_900.webp" alt="الدماغ والتركيز">
+<div class="card-body">
+<span class="number">05 — انتباه</span>
+<h3>قوة التركيز</h3>
+<p>تعرفي على أهمية الانتباه وكيفية التعامل مع المشتتات أثناء الدراسة.</p>
+<button onclick="openPage('focus')">اقرئي الموضوع</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=85" alt="مكتبة مليئة بالكتب">
+<div class="card-body">
+<span class="number">06 — تدوين</span>
+<h3>مفكرة العقل</h3>
+<p>مساحتك الخاصة لتدوين ما تعلمتِه والأفكار التي ترغبين في تذكرها والعودة إليها.</p>
+<button onclick="openPage('journal')">افتحي مفكرتك</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=85" alt="دفتر وأوراق للدراسة">
+<div class="card-body">
+<span class="number">07 — تقدم</span>
+<h3>رحلتي مع الذاكرة</h3>
+<p>تابعي تحدياتك واختباراتك وملاحظاتك، واكتشفي الشارات التي حصلتِ عليها.</p>
+<button onclick="openPage('achievements')">شاهدي تقدمك</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section feature">
+<div class="feature-copy">
+<h2>كيف يحتفظ الدماغ بالمعلومات؟</h2>
+<p>لا تعمل الذاكرة كخزان يحفظ كل شيء بالطريقة نفسها. يحتاج الدماغ إلى الانتباه للمعلومة وفهمها وربطها بالمعرفة السابقة. وتساعد المراجعة والاسترجاع على تثبيت ما نتعلمه.</p>
+<p>وتتأثر عملية التذكر بعوامل متعددة، منها النوم والراحة والانتباه وطريقة تنظيم المعلومات. لذلك فإن التعلم الفعّال لا يعتمد على الحفظ وحده، بل يجمع بين الفهم والتطبيق والمراجعة.</p>
+<button onclick="openPage('discover')">اكتشفي المزيد</button>
+</div>
+<img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1000&q=85" alt="دماغ رقمي مضيء">
+</section>
+
+<section class="section" id="audio">
+<div class="section-head">
+<h2>استمعي إلى معلومة مدهشة</h2>
+<p>استخدمي القارئ الصوتي للاستماع إلى معلومة جديدة</p>
+</div>
+<div class="audio-reader">
+<h2>كيف تساعدنا الألوان على تذكّر المعلومات؟</h2>
+<button class="show-text-btn" id="showTextBtn" onclick="toggleFeaturedText()">عرض المعلومة المكتوبة</button>
+<div class="reader-text" id="featuredReaderText" style="display:none;">
+هل تعلمين أن الألوان قد تؤثر في طريقة استقبالنا للمعلومات وتذكّرها؟ عندما نستخدم ألوانًا مختلفة أثناء تدوين الملاحظات، فإننا نساعد الدماغ على التمييز بين الأفكار وتصنيفها بصريًا. فمثلًا، يمكن تخصيص لون للتعريفات، وآخر للأمثلة، وثالث للمعلومات المهمة. بهذه الطريقة تصبح الملاحظات أكثر تنظيمًا، وأسهل في المراجعة والاسترجاع.
+</div>
+<div class="speed-control">
+<label for="audioSpeed">سرعة الاستماع</label>
+<select id="audioSpeed" aria-label="اختيار سرعة التسجيل">
+<option value="0.75">بطيء</option>
+<option value="1" selected>عادي</option>
+<option value="1.25">سريع</option>
+<option value="1.5">سريع جدًا</option>
+</select>
+<span id="speedStatus">السرعة الحالية: عادي</span>
+</div>
+<audio id="featuredAudio" controls preload="metadata" style="width:100%;margin-top:18px">
+<source src="memory-audio.mp3" type="audio/mpeg">
+متصفحك لا يدعم تشغيل الصوت.
+</audio>
+<div class="audio-controls">
+<button onclick="playFeaturedText()">▶ استمعي للتسجيل الصوتي</button>
+<button class="stop" onclick="pauseSpeech()">إيقاف مؤقت</button>
+<button class="stop" onclick="resumeSpeech()">متابعة القراءة</button>
+<button class="stop" onclick="stopSpeech()">إيقاف</button>
+</div>
+<p class="reader-status" id="readerStatus">أهلًا بكِ في مجلة تنمية الذاكرة! اضغطي على زر الاستماع لاكتشاف المعلومة صوتيًا.</p>
+</div>
+</section>
+
+<section class="section" id="assistant">
+<div class="section-head">
+<h2>المستشار الذكي للتعلم</h2>
+<p>اسألي عن محتوى المجلة وأبوابها ومعلوماتها</p>
+</div>
+<div class="assistant-box">
+<h2>مرحبًا بكِ في المستشار الذكي</h2>
+<p>اكتبي سؤالك أو اختاري موضوعًا، وسأقدم لك إجابة مناسبة من المعلومات الموجودة في مجلة تنمية الذاكرة.</p>
+<div class="assistant-questions">
+<button onclick="askAssistant('memory')">كيف تعمل الذاكرة؟</button>
+<button onclick="askAssistant('forget')">لماذا ننسى المعلومات؟</button>
+<button onclick="askAssistant('study')">كيف أحفظ المعلومات؟</button>
+<button onclick="askAssistant('focus')">كيف أزيد تركيزي؟</button>
+<button onclick="askAssistant('review')">ما أفضل طريقة للمراجعة؟</button>
+<button onclick="askAssistant('sleep')">ما علاقة النوم بالذاكرة؟</button>
+</div>
+<input class="assistant-input" id="assistantInput" placeholder="اكتبي سؤالك هنا...">
+<button onclick="sendAssistantQuestion()">تحليل السؤال والإجابة</button>
+<button class="back" onclick="analyzeLearning()" style="margin-right:8px">حللي مستواي الدراسي</button>
+<div class="assistant-response" id="assistantResponse"><strong>أنا جاهز لمساعدتك!</strong><br>اكتبي سؤالًا أو اختاري أحد الأسئلة المقترحة.</div>
+<div class="assistant-response" id="learningReport" style="display:none"><strong>تحليل مستواك</strong><div id="learningReportContent"></div></div>
+<p class="assistant-disclaimer">المساعد الذكي مخصص للإجابة عن الأسئلة المتعلقة بمحتوى الموقع وأقسامه والمعلومات الواردة فيه فقط.</p>
+</div>
+</section>
+
+<section class="section" id="video">
+<div class="section-head">
+<h2>نافذة مرئية</h2>
+<p>مساحة للتعلم من خلال المشاهدة</p>
+</div>
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed/yOgAbKJGrTA?playsinline=1&rel=0&modestbranding=1" title="فيديو تعليمي عن تكوّن الذكريات وكيف ننسى" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h3>شاهدي وتعلّمي</h3>
+<p>شاهدي الفيديو، ثم انتقلي إلى أبواب المجلة لاكتشاف المزيد عن الذاكرة والتعلم.</p>
+</div>
+</section>
+
+<section class="section" id="test">
+<div class="section-head">
+<h2>اختبري نفسك</h2>
+<p>اختبري معلوماتك واكتشفي مستوى فهمك للذاكرة</p>
+</div>
+<div class="quiz" id="quizBox">
+<div class="quiz-meta">
+<strong id="questionNumber">السؤال 1 من 5</strong>
+<strong id="scoreLive">النتيجة: 0</strong>
+</div>
+<div class="quiz-progress"><div id="progressBar"></div></div>
+<h3 id="questionText">السؤال هنا</h3>
+<div id="quizAnswers"></div>
+<p id="feedback" class="answer"></p>
+<button id="nextButton" onclick="nextQuestion()" style="display:none">السؤال التالي</button>
+<div id="finalResult" class="result-card" style="display:none">
+<h2 id="finalScore"></h2>
+<p id="finalMessage"></p>
+<h3 id="bestScore"></h3>
+<p id="resultPercent"></p>
+<div class="quiz-progress"><div id="finalBar"></div></div>
+<h3>مراجعة إجاباتك</h3>
+<div id="reviewAnswers"></div>
+<div id="smartQuizAnalysis" class="note" style="display:none"></div>
+</div>
+<button id="restartButton" onclick="restartQuiz()" style="display:none;margin-top:15px">إعادة الاختبار</button>
+</div>
+</section>
+
+</main>
+
+<section class="section" id="reader">
+<button class="back" onclick="showHome()">← العودة إلى المجلة</button>
+<article class="paper" id="paper"></article>
+</section>
+
+<footer>
+<h2>مجلة تنمية الذاكرة</h2>
+<p>كل معلومة جديدة.. خطوة نحو معرفة أوسع.</p>
+<p>إعداد المتدربة: لمياء صالح محمد</p>
+<p>إشراف المدربة: نورة جمهور</p>
+</footer>
+
+<script>
+
+/* محتوى أبواب المجلة */
+const pages={
+
+discover:`<h1>اكتشفي ذاكرتك</h1>
+<img src="https://www.infobae.com/resizer/v2/GE3GB3BA4VBW7GRI26JE5PKII4.jpg?auth=048f525d926a5c9a9b824dc418fb1d39d7bbe742621464029ada69b904620a9b&height=900&quality=85&smart=true&width=1200" alt="الدماغ والذاكرة">
+<p>الذاكرة هي قدرة الدماغ على استقبال المعلومات والاحتفاظ بها ثم استرجاعها عند الحاجة. وهي تساعدنا على التعلم والاستفادة من خبراتنا السابقة، كما تؤدي دورًا أساسيًا في حياتنا اليومية؛ فمن خلالها نتذكر الأسماء والأماكن والمواقف والمهارات التي تعلمناها.</p>
+<h2>مراحل عمل الذاكرة</h2>
+<p><b>الترميز:</b> تحويل المعلومات التي نراها أو نسمعها أو نقرأها إلى شكل يستطيع الدماغ معالجته. ويساعد الانتباه والفهم على ترميز المعلومات بصورة أفضل.</p>
+<p><b>التخزين:</b> الاحتفاظ بالمعلومات لفترات مختلفة، فقد تبقى المعلومة لثوانٍ أو دقائق، وقد تستمر لسنوات طويلة.</p>
+<p><b>الاسترجاع:</b> الوصول إلى المعلومة المخزنة عند الحاجة إليها، مثل تذكر إجابة سؤال أثناء الاختبار أو تذكر موقف قديم.</p>
+<h2>أنواع الذاكرة</h2>
+<p><b>الذاكرة الحسية:</b> تحتفظ بآثار المعلومات القادمة من الحواس لفترة وجيزة جدًا، مثل صورة نراها أو صوت نسمعه.</p>
+<p><b>الذاكرة قصيرة المدى:</b> تحتفظ بكمية محدودة من المعلومات لفترة قصيرة، مثل الاحتفاظ برقم مؤقتًا حتى نكتبه.</p>
+<p><b>الذاكرة العاملة:</b> تساعدنا على الاحتفاظ بالمعلومات واستخدامها في الوقت نفسه، مثل إجراء عملية حسابية ذهنيًا.</p>
+<p><b>الذاكرة طويلة المدى:</b> تساعد على الاحتفاظ بالمعارف والخبرات والمهارات لفترات طويلة.</p>
+<h2>هل يمكن تقوية الذاكرة؟</h2>
+<p>يمكن دعم التعلم والتذكر من خلال الممارسة المنتظمة، والمراجعة المتباعدة، ومحاولة استرجاع المعلومات دون النظر إلى الكتاب، وربط الأفكار الجديدة بأمثلة معروفة.</p>
+<div class="note">معلومة: الحُصين جزء من الدماغ يؤدي دورًا مهمًا في تكوين ذكريات جديدة، ويساعد على تنظيم المعلومات المرتبطة بالأحداث والخبرات.</div>`,
+
+secrets:`<h1>أسرار الحفظ</h1>
+<img src="https://m.economictimes.com/thumb/msid-131250790%2Cwidth-1600%2Cheight-900%2Cresizemode-4%2Cimgsize-1882933/psychology-says-students-who-top-exams-without-studying-for-hours-arent-just-gifted-but-have-one-hidden-advantage-others-ignore.jpg" alt="الدراسة وتدوين الملاحظات">
+<p>الحفظ الفعّال لا يعتمد على تكرار الكلمات فقط، بل على فهم المعنى وربط المعلومات ببعضها واستخدامها أكثر من مرة. وكلما شارك المتعلم في معالجة المعلومة بدلًا من قراءتها بشكل سلبي، أصبحت فرصة تذكرها أفضل.</p>
+<h2>طرق تساعدك على التذكر</h2>
+<p><b>التكرار المتباعد:</b> راجعي المعلومة على فترات بدلًا من حفظها كلها في جلسة واحدة. يمكنك مراجعتها بعد وقت قصير، ثم في اليوم التالي، ثم بعد عدة أيام.</p>
+<p><b>الاسترجاع النشط:</b> أغلقي الكتاب وحاولي الإجابة من ذاكرتك، ثم تحققي من إجابتك. هذه الطريقة تساعدك على معرفة ما تتذكرينه فعلًا وما يحتاج إلى مراجعة.</p>
+<p><b>الربط:</b> اربطي المعلومة الجديدة بمثال تعرفينه أو بصورة ذهنية أو بمعلومة سابقة؛ فالروابط تجعل استدعاء المعلومات أسهل.</p>
+<p><b>التلخيص:</b> اكتبي الفكرة بأسلوبك وحددي الكلمات الأساسية بدلًا من نسخ الفقرة كاملة.</p>
+<p><b>التقسيم:</b> قسّمي المعلومات الطويلة إلى مجموعات صغيرة يسهل فهمها وتذكرها.</p>
+<p><b>الشرح للآخرين:</b> حاولي شرح الفكرة بصوتك وكأنك تدرّسينها لشخص آخر. إذا استطعت شرحها بوضوح، فهذا مؤشر على فهمك لها.</p>
+<h2>مثال تطبيقي</h2>
+<p>إذا كنتِ تدرسين درسًا عن أنواع الذاكرة، اقرئي النوع الأول وافهمي معناه، ثم أغلقي الكتاب وحاولي شرحه بكلماتك. بعد ذلك انتقلي إلى النوع التالي، وفي النهاية قارني بين الأنواع الثلاثة.</p>
+<div class="note">تطبيق عملي: بعد قراءة فقرة، أغلقي الكتاب واكتبي ثلاث أفكار تتذكرينها، ثم قارنيها بالنص الأصلي.</div>`,
+
+games:`<h1>ألعاب الذاكرة</h1>
+<p class="games-intro">أهلًا بكِ في مساحة التحديات! أمامك ثلاث ألعاب مختلفة لاختبار الذاكرة البصرية واللفظية والقدرة على تذكر الأرقام. اختاري لعبة وابدئي التحدي، وحاولي تحسين نتيجتك في كل مرة.</p>
+
+<div class="memory-game">
+<span class="game-tag">اللعبة الأولى · الذاكرة الرقمية</span>
+<h2>تحدي تذكّر الأرقام</h2>
+<p class="game-instruction">سيظهر أمامك رقم مكوّن من خمسة أرقام لمدة ثلاث ثوانٍ فقط. ركزي عليه جيدًا، ثم حاولي كتابته بعد اختفائه.</p>
+<div class="game-display"><strong id="number">اضغطي لعرض الرقم</strong></div>
+<div class="game-actions">
+<button id="showNumberBtn" onclick="showNumber()">ابدئي تحدي الأرقام</button>
+</div>
+<input class="game-input" id="numberInput" type="text" inputmode="numeric" maxlength="5" placeholder="اكتبي الرقم الذي تتذكرينه" disabled>
+<button id="checkNumberBtn" onclick="checkNumber()" disabled>تحققي من الإجابة</button>
+<div class="game-result" id="numberResult">ستظهر نتيجتك هنا بعد الإجابة.</div>
+</div>
+
+<div class="memory-game">
+<span class="game-tag">اللعبة الثانية · الذاكرة اللفظية</span>
+<h2>تحدي تذكّر الكلمات</h2>
+<p class="game-instruction">ستظهر أمامك ست كلمات لمدة ست ثوانٍ. حاولي قراءتها وحفظها، ثم اكتبي الكلمات التي تتذكرينها بعد اختفائها.</p>
+<div class="game-display">
+<strong id="words" style="font-size:24px;letter-spacing:0">اضغطي لعرض الكلمات</strong>
+</div>
+<div class="game-actions">
+<button id="startWordsBtn" onclick="startWords()">ابدئي تحدي الكلمات</button>
+</div>
+<input class="game-input" id="typedWords" placeholder="اكتبي الكلمات التي تتذكرينها" disabled>
+<button id="scoreWordsBtn" onclick="scoreWords()" disabled>تحققي من إجابتي</button>
+<div class="game-result" id="wordResult">ستظهر نتيجتك هنا بعد الإجابة.</div>
+</div>
+
+<div class="memory-game">
+<span class="game-tag">اللعبة الثالثة · الذاكرة البصرية</span>
+<h2>اكتشفي الصورة الناقصة</h2>
+<p class="game-instruction">ستظهر أمامك ست صور مختلفة. احفظيها جيدًا خلال خمس ثوانٍ. بعد ذلك ستختفي الصور، ولن نعرضها مرة أخرى؛ اكتبي اسم الصورة التي اختفت من المجموعة.</p>
+<div class="game-display" id="pictureDisplay">
+<div style="color:#718b78;font-weight:700">اضغطي على زر البداية لعرض الصور</div>
+</div>
+<div class="game-actions">
+<button id="startPictureBtn" onclick="startPictureGame()">ابدئي تحدي الصور</button>
+</div>
+<div id="pictureAnswerArea" style="display:none">
+<p class="game-instruction">ما اسم الصورة التي اختفت؟ اكتبي إجابتك هنا:</p>
+<input class="game-input" id="missingPictureInput" placeholder="اكتبي اسم الصورة الناقصة">
+<button id="checkPictureBtn" onclick="checkMissingPicture()">تحققي من الإجابة</button>
+</div>
+<div class="game-result" id="pictureResult">ستظهر نتيجتك هنا بعد الإجابة.</div>
+<div class="game-score" id="pictureScore"></div>
+</div>
+
+<div class="note">
+<strong>تذكري:</strong> كل لعبة تدرب جانبًا مختلفًا من الذاكرة؛ فالأرقام والكلمات تعتمد على التذكر، بينما تساعد لعبة الصور على تنمية الملاحظة والذاكرة البصرية.
+</div>`,
+
+journey:`<h1>رحلة المعلومة</h1>
+<img src="https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2FbAub%2Fimage%2FGZCif4u8dDi3pVKmkQ90mX7iJQc.png" alt="المعرفة والتقنية">
+<p>تمر المعلومة بعدة مراحل منذ لحظة وصولها إلى حواسنا وحتى نحتاج إلى تذكرها. وفهم هذه المراحل يساعدنا على اختيار طرق تعلم أكثر فاعلية.</p>
+<h2>1. استقبال المعلومة</h2>
+<p>تصل المعلومات إلى الدماغ من خلال الحواس، ويساعد الانتباه على اختيار ما يستحق المعالجة. فعندما نركز في شرح المعلمة، نمنح الدماغ فرصة أفضل لمعالجة المعلومات المهمة.</p>
+<h2>2. فهم المعلومة</h2>
+<p>يربط الدماغ المعلومات الجديدة بما تعرفينه سابقًا، فيصبح لها معنى أوضح. لذلك فإن فهم الفكرة أفضل من تكرار كلمات لا نعرف معناها.</p>
+<h2>3. تثبيت المعلومة</h2>
+<p>تساعد المراجعة المتباعدة والتدرب على الاسترجاع في دعم عملية التعلم. كما أن تنظيم المعلومات وربطها بالأمثلة يجعلها أكثر وضوحًا.</p>
+<h2>4. استرجاع المعلومة</h2>
+<p>عندما تحتاجين إلى الإجابة، يحاول الدماغ الوصول إلى المعلومات التي سبق تعلمها. وتساعد التدريبات والأسئلة على ممارسة هذه العملية.</p>
+<div class="note">التعلم يمر بمراحل مترابطة من الانتباه والفهم والتخزين والاسترجاع، وكل مرحلة تدعم المرحلة التي تليها.</div>`,
+
+focus:`<h1>قوة التركيز</h1>
+<img src="https://mdb.ad-hoc-news.de/bild/bild-2564654_1200_900.webp" alt="الدماغ والتركيز">
+<p>التركيز هو توجيه الانتباه نحو مهمة أو معلومة معينة. عندما يتشتت الانتباه، قد لا نعالج المعلومة بعمق كافٍ، فيصبح تذكرها لاحقًا أصعب.</p>
+<h2>ما الذي يساعد على التركيز؟</h2>
+<p><b>تقليل المشتتات:</b> اختاري مكانًا مناسبًا للدراسة، وأبعدي الأشياء التي قد تقاطع انتباهك.</p>
+<p><b>تقسيم المهام:</b> قسّمي المهمة الكبيرة إلى أجزاء واضحة، وابدئي بجزء واحد في كل مرة.</p>
+<p><b>الاستراحات:</b> خذي استراحة قصيرة بين فترات العمل حتى تستعيدي نشاطك.</p>
+<p><b>تحديد الهدف:</b> حددي ما تريدين فهمه أو إنجازه قبل البدء بالمذاكرة.</p>
+<p><b>تنظيم وقت الدراسة:</b> خصصي وقتًا لكل مادة أو مهمة، واكتبي قائمة بسيطة بالأولويات.</p>
+<h2>تجربة بسيطة لتحسين الانتباه</h2>
+<p>اختاري فقرة قصيرة، واقرئيها بهدوء مع التركيز على الفكرة الأساسية. بعد الانتهاء، أغلقي الكتاب واكتبي ملخصًا من سطرين. كرري التجربة مع فقرة أخرى ولاحظي مدى قدرتك على استيعاب الأفكار.</p>
+<div class="note">تذكري أن التركيز مهارة يمكن ممارستها وتحسينها بالتدريب وتنظيم بيئة الدراسة.</div>`,
+
+journal:`<h1>مفكرة العقل</h1>
+<p>أهلًا بكِ في مساحتك الخاصة. هنا يمكنك تدوين أفكارك ومعلوماتك المهمة والعودة إليها متى احتجتِ. اكتبي بحرية، فكل فكرة تسجلينها قد تصبح ذكرى أو معرفة تستفيدين منها لاحقًا.</p>
+
+<div class="journal-intro">
+<strong>كيف تستخدمين المفكرة؟</strong><br>
+اكتبي في الخانات الثلاث، ثم اضغطي على زر الحفظ. ستبقى ملاحظاتك محفوظة على هذا الجهاز ويمكنك العودة إليها أو حذفها في أي وقت.
+</div>
+
+<div class="journal-card">
+<h2>ماذا تعلمت اليوم؟</h2>
+<p>اكتبي معلومة جديدة أو فكرة استفدتِ منها اليوم.</p>
+<textarea id="learnedNote" placeholder="اليوم تعلمت أن..."></textarea>
+<button onclick="saveJournal('learnedNote','ماذا تعلمت اليوم؟')">احفظي المعلومة</button>
+</div>
+
+<div class="journal-card">
+<h2>أشياء أريد تذكرها</h2>
+<p>اكتبي أمرًا مهمًا أو فكرة تريدين الرجوع إليها لاحقًا.</p>
+<textarea id="rememberNote" placeholder="أريد أن أتذكر..."></textarea>
+<button onclick="saveJournal('rememberNote','أشياء أريد تذكرها')">احفظي الملاحظة</button>
+</div>
+
+<div class="journal-card">
+<h2>رسالة إلى نفسي</h2>
+<p>اكتبي رسالة قصيرة لنفسك أو كلمات تشجيعية تحبين قراءتها لاحقًا.</p>
+<textarea id="myMessage" placeholder="عزيزتي نفسي، أود أن أذكرك..."></textarea>
+<button onclick="saveJournal('myMessage','رسالة إلى نفسي')">احفظي الرسالة</button>
+</div>
+
+<div class="journal-card">
+<h2>ملاحظاتي المحفوظة</h2>
+<p>هنا ستجدين كل ما حفظتِه في مفكرتك.</p>
+<div id="journalEntries"></div>
+</div>`,
+
+achievements:`<h1>رحلتي مع الذاكرة</h1>
+<p>هذه مساحتك لمتابعة رحلتك في المجلة. كل لعبة تجربينها، وكل اختبار تكملينه، وكل ملاحظة تحفظينها تضيف خطوة جديدة إلى تقدمك.</p>
+
+<div class="progress-intro">
+<strong>رحلتك تتكوّن من خطوات صغيرة.</strong><br>
+استمري في استكشاف أبواب المجلة وتجربة الألعاب وتدوين أفكارك. ستتحدث هذه الصفحة تلقائيًا مع تقدمك.
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><strong id="statGames">0</strong><span>تحديات مكتملة</span></div>
+<div class="stat-card"><strong id="statQuizzes">0</strong><span>اختبارات مكتملة</span></div>
+<div class="stat-card"><strong id="statNotes">0</strong><span>ملاحظات محفوظة</span></div>
+<div class="stat-card"><strong id="statBest">0/5</strong><span>أعلى نتيجة</span></div>
+</div>
+
+<div class="journal-card">
+<h2>مستوى تقدمك</h2>
+<p id="progressMessage">ابدئي أول تحدٍ لتظهري تقدمك هنا.</p>
+<div class="progress-line"><div id="journeyProgress"></div></div>
+<p id="progressPercent">0% من خطوات الرحلة</p>
+</div>
+
+<div class="journal-card">
+<h2>الشارات التي يمكنك الحصول عليها</h2>
+<p>كل شارة تمثل إنجازًا وصلتِ إليه خلال رحلتك.</p>
+<div class="badges-grid" id="badgesGrid"></div>
+</div>
+
+<div class="journal-card">
+<h2>رسالة تشجيعية</h2>
+<p id="journeyMessage">كل محاولة تمنحك فرصة جديدة للتعلم والتطور. ابدئي من حيث أنتِ، وتقدمي خطوة بخطوة.</p>
+</div>`
+};
+
+/* التنقل بين صفحات المجلة */
+function openPage(key){
+ if(!pages[key])return;
+ stopSpeech();
+ document.getElementById("home").style.display="none";
+ document.getElementById("reader").style.display="block";
+ document.getElementById("paper").innerHTML=pages[key];
+ window.scrollTo(0,0);
+
+ if(key==="journal")loadJournal();
+ if(key==="achievements")loadJourney();
+}
+
+function showHome(){
+ stopSpeech();
+ document.getElementById("reader").style.display="none";
+ document.getElementById("home").style.display="block";
+ window.scrollTo(0,0);
+}
+
+function goToSection(id){
+ showHome();
+ setTimeout(function(){
+  const target=document.getElementById(id);
+  if(target)target.scrollIntoView({behavior:"smooth"});
+ },50);
+}
+
+/* القارئ الصوتي: تشغيل التسجيل الصوتي المرفق */
+const featuredAudio=document.getElementById("featuredAudio");
+const audioSpeed=document.getElementById("audioSpeed");
+if(featuredAudio&&audioSpeed){
+ audioSpeed.addEventListener("change",function(){
+  featuredAudio.playbackRate=Number(audioSpeed.value);
+  const labels={"0.75":"بطيء","1":"عادي","1.25":"سريع","1.5":"سريع جدًا"};
+  document.getElementById("speedStatus").textContent="السرعة الحالية: "+labels[audioSpeed.value];
+ });
+ featuredAudio.playbackRate=1;
+}
+
+function toggleFeaturedText(){
+ const text=document.getElementById("featuredReaderText");
+ const button=document.getElementById("showTextBtn");
+ if(text.style.display==="none"){
+  text.style.display="block";
+  button.textContent="إخفاء المعلومة المكتوبة";
+ }else{
+  text.style.display="none";
+  button.textContent="عرض المعلومة المكتوبة";
+ }
+}
+
+function playFeaturedText(){
+ if(!featuredAudio)return;
+ featuredAudio.play().then(function(){
+  document.getElementById("readerStatus").textContent="يتم الآن تشغيل التسجيل الصوتي.";
+ }).catch(function(){
+  document.getElementById("readerStatus").textContent="تعذر تشغيل التسجيل. اضغطي على زر التشغيل داخل مشغل الصوت وحاولي مرة أخرى.";
+ });
+}
+
+function pauseSpeech(){
+ if(featuredAudio&&!featuredAudio.paused){
+  featuredAudio.pause();
+  document.getElementById("readerStatus").textContent="تم إيقاف التسجيل مؤقتًا.";
+ }
+}
+
+function resumeSpeech(){
+ if(featuredAudio&&featuredAudio.paused&&featuredAudio.currentTime>0&&!featuredAudio.ended){
+  featuredAudio.play().then(function(){
+   document.getElementById("readerStatus").textContent="تمت متابعة التسجيل الصوتي.";
+  }).catch(function(){
+   document.getElementById("readerStatus").textContent="تعذرت متابعة التسجيل. حاولي الضغط على زر التشغيل داخل المشغل.";
+  });
+ }else if(featuredAudio&&featuredAudio.currentTime===0){
+  playFeaturedText();
+ }
+}
+
+function stopSpeech(){
+ if(featuredAudio){
+  featuredAudio.pause();
+  featuredAudio.currentTime=0;
+  document.getElementById("readerStatus").textContent="تم إيقاف التسجيل وإعادته إلى البداية.";
+ }
+}
+
+if(featuredAudio){
+ featuredAudio.addEventListener("play",function(){
+  document.getElementById("readerStatus").textContent="يتم الآن تشغيل التسجيل الصوتي.";
+ });
+ featuredAudio.addEventListener("pause",function(){
+  if(!featuredAudio.ended&&featuredAudio.currentTime>0){
+   document.getElementById("readerStatus").textContent="تم إيقاف التسجيل مؤقتًا.";
+  }
+ });
+ featuredAudio.addEventListener("ended",function(){
+  document.getElementById("readerStatus").textContent="انتهى التسجيل الصوتي. يمكنك الاستماع إليه مرة أخرى.";
+ });
+ featuredAudio.addEventListener("error",function(){
+  document.getElementById("readerStatus").textContent="تعذر تحميل ملف التسجيل. تأكدي من وجود memory-audio.mp3 بجانب ملف الموقع.";
+ });
+}
+
+/* أدوات مساعدة */
+function normalizeArabic(text){
+ return String(text).toLowerCase().normalize("NFD")
+ .replace(/[\u064B-\u065F\u0670]/g,"")
+ .replace(/[أإآٱ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي")
+ .replace(/ؤ/g,"و").replace(/ئ/g,"ي").replace(/ـ/g,"")
+ .replace(/[^\u0621-\u064A0-9\s]/g," ").replace(/\s+/g," ").trim();
+}
+
+function escapeHTML(text){
+ return String(text).replace(/[&<>"']/g,function(char){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char];
+ });
+}
+
+/* حفظ إحصائيات التقدم */
+function getStats(){
+ try{
+  return JSON.parse(localStorage.getItem("memoryJourneyStats")||'{"games":0,"quizzes":0,"notes":0}');
+ }catch(e){
+  return {games:0,quizzes:0,notes:0};
+ }
+}
+
+function saveStats(stats){
+ localStorage.setItem("memoryJourneyStats",JSON.stringify(stats));
+}
+
+function recordGame(){
+ const stats=getStats();
+ stats.games++;
+ saveStats(stats);
+}
+
+function recordQuiz(){
+ const stats=getStats();
+ stats.quizzes++;
+ saveStats(stats);
+}
+
+function recordNote(){
+ const stats=getStats();
+ stats.notes++;
+ saveStats(stats);
+}
+
+/* المستشار الذكي */
+const assistantAnswers={
+ memory:"تعمل الذاكرة عبر ثلاث عمليات رئيسية: الترميز، وهو استقبال المعلومات ومعالجتها؛ والتخزين، وهو الاحتفاظ بها؛ والاسترجاع، وهو الوصول إليها عند الحاجة. ويساعد الانتباه والفهم والمراجعة على دعم هذه العمليات.",
+ forget:"قد ننسى بعض المعلومات لأننا لم ننتبه إليها جيدًا عند تعلمها، أو لأننا لم نراجعها، أو بسبب تداخل معلومات متشابهة. ويمكن دعم التذكر من خلال الفهم والمراجعة المتباعدة ومحاولة استرجاع المعلومة.",
+ study:"ابدئي بفهم الدرس وتقسيمه إلى أجزاء صغيرة. بعد كل جزء أغلقي الكتاب وحاولي شرح ما تعلمتِه من ذاكرتك. استخدمي التلخيص والأمثلة، وراجعي المعلومات على فترات بدلًا من تركيز المذاكرة في وقت واحد.",
+ focus:"اختاري مكانًا هادئًا، وحددي هدفًا واضحًا لكل جلسة، وأبعدي المشتتات قدر الإمكان. قسّمي المهام الكبيرة إلى خطوات قصيرة، وخذي استراحات مناسبة بين فترات الدراسة.",
+ review:"من الطرق المفيدة: المراجعة المتباعدة، والاسترجاع النشط، وحل الأسئلة، وشرح الدرس بأسلوبك. لا تكتفي بإعادة القراءة؛ حاولي تذكر المعلومة أولًا ثم ارجعي إلى الكتاب للتحقق.",
+ sleep:"يساعد النوم المنتظم على دعم التعلم والذاكرة؛ إذ يشارك الدماغ أثناء النوم في معالجة المعلومات التي تعلمناها. لذلك من المفيد تنظيم وقت الدراسة والنوم وتجنب السهر المتكرر."
+};
+
+const assistantKeywords={
+ memory:["ذاكره","ذاكرتي","الذاكره","ذاكره تعمل","كيف تعمل الذاكره","انواع الذاكره","مراحل الذاكره","الدماغ"],
+ forget:["انسى","انسي","نسيان","النسيان","نسيت","ليش انسى","لماذا انسى","انسى المعلومات"],
+ study:["احفظ","الحفظ","مذاكره","اذاكر","اذكر","استذكر","كيف احفظ","طرق الحفظ"],
+ focus:["تركيز","التركيز","اركيز","ركز","اتشتت","تشتت","مشتتات","انتباه","انتبه"],
+ review:["مراجعه","المراجعه","اراجع","راجع","كيف اراجع","المراجعة"],
+ sleep:["نوم","النوم","اسهر","السهر","انام","النوم والذاكره"]
+};
+
+function detectAssistantTopic(question){
+ const q=normalizeArabic(question);
+ const tests=[
+  ["forget",assistantKeywords.forget],
+  ["study",assistantKeywords.study],
+  ["focus",assistantKeywords.focus],
+  ["review",assistantKeywords.review],
+  ["sleep",assistantKeywords.sleep],
+  ["memory",assistantKeywords.memory]
+ ];
+ for(const [topic,words] of tests){
+  if(words.some(word=>q.includes(normalizeArabic(word))))return topic;
+ }
+ return null;
+}
+
+function askAssistant(topic){
+ const response=document.getElementById("assistantResponse");
+ if(!assistantAnswers[topic])return;
+ response.innerHTML="<strong>إجابة المستشار الذكي:</strong><br>"+assistantAnswers[topic];
+}
+
+function sendAssistantQuestion(){
+ const input=document.getElementById("assistantInput");
+ const question=input.value.trim();
+ const response=document.getElementById("assistantResponse");
+ if(!question){
+  response.innerHTML="<strong>اكتبي سؤالك أولًا.</strong><br>يمكنك السؤال عن الذاكرة أو النسيان أو الحفظ أو التركيز أو المراجعة أو النوم.";
+  return;
+ }
+ const topic=detectAssistantTopic(question);
+ const answer=topic?assistantAnswers[topic]:"لم أتعرف على موضوع السؤال بشكل كافٍ. جربي صياغته بطريقة أخرى، ويمكنك السؤال عن الذاكرة أو النسيان أو الحفظ أو التركيز أو المراجعة أو النوم.";
+ response.innerHTML="<strong>سؤالك:</strong> "+escapeHTML(question)+"<br><br><strong>تحليل السؤال والإجابة:</strong><br>"+answer;
+ input.value="";
+}
+
+function analyzeLearning(){
+ const report=document.getElementById("learningReport");
+ const content=document.getElementById("learningReportContent");
+ const last=JSON.parse(localStorage.getItem("lastLearningAnalysis")||"null");
+ const best=Number(localStorage.getItem("memoryBestScore")||0);
+
+ if(!last&&!best){
+  content.innerHTML="<p>لم تسجلي نتيجة اختبار حتى الآن. ابدئي الاختبار حتى أتمكن من تحليل مستواك وتقديم توصيات مناسبة.</p><button onclick=\"goToSection('test')\">ابدئي الاختبار</button>";
+ }else{
+  const score=last?last.score:best;
+  const weak=last?last.weakTopics:[];
+  let level=score===5?"ممتاز":score>=3?"جيد":"يحتاج إلى مزيد من التدريب";
+  let advice=score===5?"حافظي على مستواك من خلال الاسترجاع النشط والتحديات المعرفية.":score>=3?"راجعي المعلومات التي أخطأتِ فيها، ثم أعيدي الاختبار لتثبيت المعرفة.":"ابدئي بقراءة باب اكتشفي ذاكرتك، ثم انتقلي إلى أسرار الحفظ وجرّبي الاختبار مجددًا.";
+  content.innerHTML="<h3>مستواك: "+level+"</h3><p>نتيجتك في آخر اختبار: "+score+" من 5 ("+Math.round(score/5*100)+"%).</p>"+
+   (weak.length?"<p><strong>الموضوعات التي تحتاج إلى مراجعة:</strong> "+weak.map(escapeHTML).join("، ")+"</p>":"<p>لم تظهر نقاط ضعف في آخر محاولة.</p>")+
+   "<p><strong>توصيتنا لكِ:</strong> "+advice+"</p><h3>خطة التعلم المقترحة</h3><ol><li>اقرئي موضوعًا واحدًا من أبواب المجلة.</li><li>لخصي أهم ثلاث معلومات تعلمتِها.</li><li>حاولي استرجاع المعلومات دون النظر إلى النص.</li><li>أعيدي الاختبار وقارني نتيجتك السابقة بالجديدة.</li></ol>";
+ }
+ report.style.display="block";
+ report.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+/* اختبار المجلة */
+const quizQuestions=[
+{q:"ما الوظيفة الأساسية للذاكرة؟",a:["استقبال المعلومات والاحتفاظ بها واسترجاعها","تحريك عضلات الجسم فقط","إنتاج الطاقة"],correct:0,topic:"وظائف الذاكرة",explain:"الذاكرة تساعدنا على استقبال المعلومات والاحتفاظ بها ثم استرجاعها."},
+{q:"أي مرحلة تعني الاحتفاظ بالمعلومات؟",a:["الترميز","التخزين","الاسترجاع"],correct:1,topic:"مراحل الذاكرة",explain:"التخزين هو الاحتفاظ بالمعلومات لفترات مختلفة."},
+{q:"ما الطريقة الأفضل لتثبيت المعلومات؟",a:["قراءتها مرة واحدة","تجاهلها بعد التعلم","مراجعتها ومحاولة استرجاعها"],correct:2,topic:"طرق تثبيت المعلومات",explain:"المراجعة المتباعدة والاسترجاع النشط يساعدان على دعم التعلم."},
+{q:"أي نوع من الذاكرة يحتفظ بالمعلومات لفترة طويلة؟",a:["الذاكرة الحسية","الذاكرة طويلة المدى","الذاكرة قصيرة المدى"],correct:1,topic:"أنواع الذاكرة",explain:"الذاكرة طويلة المدى تحتفظ بالمعارف والخبرات لفترات طويلة."},
+{q:"ما الذي يساعد على تحسين التركيز؟",a:["تقليل المشتتات","فتح تطبيقات كثيرة","القيام بمهام متعددة في الوقت نفسه"],correct:0,topic:"مهارات التركيز",explain:"تقليل المشتتات وتحديد هدف واضح يساعدان على توجيه الانتباه."}
+];
+
+let questionIndex=0,quizScore=0,answered=false,userAnswers=[];
+
+function startQuiz(){
+ questionIndex=0;quizScore=0;answered=false;userAnswers=[];
+ document.getElementById("scoreLive").textContent="النتيجة: 0";
+ document.getElementById("finalResult").style.display="none";
+ document.getElementById("restartButton").style.display="none";
+ document.getElementById("nextButton").style.display="none";
+ document.getElementById("feedback").textContent="";
+ document.getElementById("progressBar").style.width="0%";
+ document.getElementById("questionText").style.display="block";
+ document.getElementById("quizAnswers").style.display="block";
+ document.getElementById("questionNumber").style.display="block";
+ document.getElementById("scoreLive").style.display="block";
+ document.querySelector("#quizBox > .quiz-progress").style.display="block";
+ showQuestion();
+}
+
+function showQuestion(){
+ const q=quizQuestions[questionIndex];
+ answered=false;
+ document.getElementById("questionNumber").textContent="السؤال "+(questionIndex+1)+" من "+quizQuestions.length;
+ document.getElementById("questionText").textContent=q.q;
+ document.getElementById("feedback").textContent="";
+ document.getElementById("nextButton").style.display="none";
+ const box=document.getElementById("quizAnswers");
+ box.innerHTML="";
+ q.a.forEach(function(answer,index){
+  const btn=document.createElement("button");
+  btn.textContent=answer;btn.className="answer-option";
+  btn.onclick=function(){chooseAnswer(index,btn)};
+  box.appendChild(btn);
+ });
+}
+
+function chooseAnswer(index,button){
+ if(answered)return;
+ answered=true;
+ const q=quizQuestions[questionIndex];
+ const buttons=document.querySelectorAll("#quizAnswers button");
+ buttons.forEach(function(b){b.disabled=true;});
+ userAnswers.push(index);
+ if(index===q.correct){
+  quizScore++;button.classList.add("correct");
+  document.getElementById("feedback").textContent="إجابة صحيحة! "+q.explain;
+ }else{
+  button.classList.add("wrong");buttons[q.correct].classList.add("correct");
+  document.getElementById("feedback").textContent="الإجابة الصحيحة: "+q.a[q.correct]+". "+q.explain;
+ }
+ document.getElementById("scoreLive").textContent="النتيجة: "+quizScore;
+ document.getElementById("progressBar").style.width=((questionIndex+1)/quizQuestions.length*100)+"%";
+ document.getElementById("nextButton").style.display="inline-block";
+ document.getElementById("nextButton").textContent=questionIndex===quizQuestions.length-1?"عرض نتيجتي":"السؤال التالي";
+}
+
+function nextQuestion(){
+ if(!answered)return;
+ if(questionIndex<quizQuestions.length-1){
+  questionIndex++;showQuestion();
+ }else{
+  showFinalResult();
+ }
+}
+
+function showFinalResult(){
+ document.getElementById("questionText").style.display="none";
+ document.getElementById("quizAnswers").style.display="none";
+ document.getElementById("questionNumber").style.display="none";
+ document.getElementById("scoreLive").style.display="none";
+ document.getElementById("nextButton").style.display="none";
+
+ const percent=Math.round(quizScore/quizQuestions.length*100);
+ document.getElementById("finalResult").style.display="block";
+ document.getElementById("finalScore").textContent="نتيجتك: "+quizScore+" من "+quizQuestions.length;
+ document.getElementById("finalBar").style.width=percent+"%";
+ document.getElementById("resultPercent").textContent="نسبة الإجابات الصحيحة: "+percent+"%";
+
+ let message=quizScore===5?"ممتاز! أتقنتِ جميع الأسئلة.":quizScore>=3?"أحسنتِ! لديك فهم جيد، واصلي التعلم.":"بداية جيدة! راجعي أبواب المجلة وحاولي مرة أخرى.";
+ document.getElementById("finalMessage").textContent=message;
+
+ let best=Number(localStorage.getItem("memoryBestScore")||0);
+ if(quizScore>best){
+  best=quizScore;
+  localStorage.setItem("memoryBestScore",best);
+ }
+ document.getElementById("bestScore").textContent="أعلى درجة حققتِها: "+best+" من 5";
+
+ let review="";
+ quizQuestions.forEach(function(q,i){
+  const correct=userAnswers[i]===q.correct;
+  review+=`<div class="note"><b>${i+1}. ${q.q}</b><br>إجابتك: ${q.a[userAnswers[i]]}<br>${correct?"إجابة صحيحة":"الإجابة الصحيحة: "+q.a[q.correct]}</div>`;
+ });
+ document.getElementById("reviewAnswers").innerHTML=review;
+
+ const weakTopics=[];
+ quizQuestions.forEach(function(q,i){
+  if(userAnswers[i]!==q.correct)weakTopics.push(q.topic);
+ });
+
+ const analysis=document.getElementById("smartQuizAnalysis");
+ analysis.style.display="block";
+ analysis.innerHTML="<strong>التحليل الذكي لنتيجتك</strong><br>"+
+ (weakTopics.length
+ ? "الموضوعات التي يُنصح بمراجعتها: <b>"+weakTopics.map(escapeHTML).join("، ")+"</b><br>التوصية: اقرئي الموضوعات المرتبطة بهذه المهارات في أبواب المجلة، ثم أعيدي الاختبار."
+ : "رائع! أجبتِ عن جميع الأسئلة بشكل صحيح. استمري في تنمية مهاراتك من خلال التحديات والأنشطة.");
+
+ localStorage.setItem("lastLearningAnalysis",JSON.stringify({
+  score:quizScore,weakTopics:weakTopics,date:new Date().toLocaleDateString("ar-SA")
+ }));
+
+ recordQuiz();
+ document.getElementById("restartButton").style.display="inline-block";
+}
+
+function restartQuiz(){startQuiz();}
+
+/* اللعبة الأولى: تذكّر الأرقام */
+let secret="";
+let numberTimer=null;
+
+function showNumber(){
+ clearTimeout(numberTimer);
+ const numberElement=document.getElementById("number");
+ const input=document.getElementById("numberInput");
+ const checkButton=document.getElementById("checkNumberBtn");
+ const startButton=document.getElementById("showNumberBtn");
+ const result=document.getElementById("numberResult");
+
+ secret=String(Math.floor(10000+Math.random()*90000));
+ numberElement.textContent=secret;
+ input.value="";input.disabled=true;checkButton.disabled=true;startButton.disabled=true;
+ result.textContent="احفظي الرقم جيدًا...";
+
+ numberTimer=setTimeout(function(){
+  numberElement.textContent="اختفى الرقم! اكتبيه الآن.";
+  input.disabled=false;checkButton.disabled=false;startButton.disabled=false;
+  input.focus();result.textContent="انتهى وقت الحفظ. اكتبي الرقم الذي شاهدتِه.";
+ },3000);
+}
+
+function checkNumber(){
+ const value=document.getElementById("numberInput").value.trim();
+ const result=document.getElementById("numberResult");
+ if(!value){result.textContent="اكتبي الرقم أولًا.";return;}
+ if(value===secret){
+  result.textContent="ممتاز! إجابة صحيحة، تذكرتِ الرقم كاملًا.";
+ }else{
+  result.textContent="لم تكن الإجابة مطابقة. الرقم الصحيح هو: "+secret+". حاولي مرة أخرى!";
+ }
+ document.getElementById("checkNumberBtn").disabled=true;
+ recordGame();
+}
+
+/* اللعبة الثانية: تذكّر الكلمات */
+const words=["قمر","مفتاح","حديقة","كتاب","نافذة","نجمة"];
+let wordsTimer=null;
+
+function startWords(){
+ clearTimeout(wordsTimer);
+ const el=document.getElementById("words");
+ const input=document.getElementById("typedWords");
+ const checkButton=document.getElementById("scoreWordsBtn");
+ const startButton=document.getElementById("startWordsBtn");
+
+ input.value="";input.disabled=true;checkButton.disabled=true;startButton.disabled=true;
+ document.getElementById("wordResult").textContent="احفظي الكلمات الست جيدًا...";
+ el.textContent=words.join(" — ");
+
+ wordsTimer=setTimeout(function(){
+  el.textContent="اختفت الكلمات! اكتبي ما تتذكرينه.";
+  input.disabled=false;checkButton.disabled=false;startButton.disabled=false;
+  input.focus();
+  document.getElementById("wordResult").textContent="انتهى وقت الحفظ. حاولي تذكر أكبر عدد من الكلمات.";
+ },6000);
+}
+
+function scoreWords(){
+ const text=normalizeArabic(document.getElementById("typedWords").value);
+ const count=words.filter(function(w){return text.includes(normalizeArabic(w));}).length;
+ document.getElementById("wordResult").textContent="تذكرتِ "+count+" من أصل 6 كلمات. "+(count===6?"رائع! تذكرتِ جميع الكلمات.":count>=4?"أحسنتِ، نتيجة جميلة!":"تدربي مرة أخرى وستتحسن ذاكرتك.");
+ document.getElementById("scoreWordsBtn").disabled=true;
+ recordGame();
+}
+
+/* اللعبة الثالثة: اكتشاف الصورة الناقصة */
+const pictureItems=[
+ {emoji:"🍎",name:"تفاحة"},
+ {emoji:"🚗",name:"سيارة"},
+ {emoji:"🌸",name:"زهرة"},
+ {emoji:"⭐",name:"نجمة"},
+ {emoji:"🐠",name:"سمكة"},
+ {emoji:"📚",name:"كتب"}
+];
+
+let missingPicture=null;
+let pictureTimer=null;
+let pictureAnswered=false;
+
+function renderPictureTiles(items){
+ const container=document.getElementById("pictureDisplay");
+ container.innerHTML='<div class="picture-grid">'+items.map(function(item){
+  return '<div class="picture-tile"><span class="picture-emoji">'+item.emoji+'</span><span>'+item.name+'</span></div>';
+ }).join("")+'</div>';
+}
+
+function startPictureGame(){
+ clearTimeout(pictureTimer);
+ pictureAnswered=false;
+ const choices=document.getElementById("pictureAnswerArea");
+ const result=document.getElementById("pictureResult");
+ const startButton=document.getElementById("startPictureBtn");
+ const input=document.getElementById("missingPictureInput");
+
+ choices.style.display="none";
+ input.value="";
+ result.textContent="احفظي الصور الست جيدًا...";
+ document.getElementById("pictureScore").textContent="";
+ startButton.disabled=true;
+
+ missingPicture=pictureItems[Math.floor(Math.random()*pictureItems.length)];
+ renderPictureTiles(pictureItems);
+
+ pictureTimer=setTimeout(function(){
+  /* تختفي جميع الصور ولا نعيد عرض أي صورة بعد ذلك */
+  document.getElementById("pictureDisplay").innerHTML=
+   '<div style="color:#718b78;font-weight:800;font-size:20px;padding:20px">اختفت الصور! حاولي تذكّر الصورة الناقصة.</div>';
+
+  choices.style.display="block";
+  startButton.disabled=false;
+  result.textContent="اكتبي اسم الصورة التي اختفت من المجموعة.";
+  input.focus();
+ },5000);
+}
+
+function checkMissingPicture(){
+ if(pictureAnswered)return;
+ const input=document.getElementById("missingPictureInput");
+ const answer=normalizeArabic(input.value);
+ const result=document.getElementById("pictureResult");
+
+ if(!answer){
+  result.textContent="اكتبي اسم الصورة التي تتذكرين أنها اختفت أولًا.";
+  return;
+ }
+
+ pictureAnswered=true;
+ const correct=normalizeArabic(missingPicture.name);
+ const isCorrect=answer===correct||answer.includes(correct)||correct.includes(answer);
+
+ if(isCorrect){
+  result.textContent="أحسنتِ! إجابة صحيحة. الصورة التي اختفت هي: "+missingPicture.name+".";
+  document.getElementById("pictureScore").textContent="رائعة! نجحتِ في تحدي الذاكرة البصرية.";
+ }else{
+  result.textContent="محاولة جميلة! الصورة التي اختفت هي: "+missingPicture.name+". جربي مرة أخرى في جولة جديدة.";
+  document.getElementById("pictureScore").textContent="كل محاولة تساعدك على تدريب الملاحظة والتذكر.";
+ }
+
+ input.disabled=true;
+ document.getElementById("checkPictureBtn").disabled=true;
+ recordGame();
+}
+
+/* مفكرة العقل */
+function getJournalEntries(){
+ try{
+  return JSON.parse(localStorage.getItem("mindJournalEntries")||"[]");
+ }catch(e){
+  return [];
+ }
+}
+
+function saveJournal(inputId,title){
+ const input=document.getElementById(inputId);
+ const text=input.value.trim();
+
+ if(!text){
+  alert("اكتبي ملاحظتك أولًا قبل الحفظ.");
+  return;
+ }
+
+ const entries=getJournalEntries();
+ entries.unshift({
+  id:Date.now(),
+  title:title,
+  text:text,
+  date:new Date().toLocaleDateString("ar-SA")
+ });
+
+ localStorage.setItem("mindJournalEntries",JSON.stringify(entries));
+ input.value="";
+ recordNote();
+ loadJournal();
+}
+
+function loadJournal(){
+ const container=document.getElementById("journalEntries");
+ if(!container)return;
+
+ const entries=getJournalEntries();
+
+ if(entries.length===0){
+  container.innerHTML='<div class="empty-journal">لم تحفظي أي ملاحظات بعد. ابدئي بكتابة أول فكرة في مفكرتك!</div>';
+  return;
+ }
+
+ container.innerHTML=entries.map(function(entry){
+  return '<div class="journal-entry">'+
+   '<h3>'+escapeHTML(entry.title)+'</h3>'+
+   '<small>'+escapeHTML(entry.date)+'</small>'+
+   '<p>'+escapeHTML(entry.text)+'</p>'+
+   '<button onclick="deleteJournalEntry('+entry.id+')">حذف الملاحظة</button>'+
+   '</div>';
+ }).join("");
+}
+
+function deleteJournalEntry(id){
+ const entries=getJournalEntries().filter(function(entry){return entry.id!==id;});
+ localStorage.setItem("mindJournalEntries",JSON.stringify(entries));
+ loadJournal();
+}
+
+/* رحلتي مع الذاكرة */
+function loadJourney(){
+ const stats=getStats();
+ const best=Number(localStorage.getItem("memoryBestScore")||0);
+ const entries=getJournalEntries();
+
+ document.getElementById("statGames").textContent=stats.games;
+ document.getElementById("statQuizzes").textContent=stats.quizzes;
+ document.getElementById("statNotes").textContent=entries.length;
+ document.getElementById("statBest").textContent=best+"/5";
+
+ const total=stats.games+stats.quizzes+entries.length;
+ const target=10;
+ const percent=Math.min(100,Math.round(total/target*100));
+
+ document.getElementById("journeyProgress").style.width=percent+"%";
+ document.getElementById("progressPercent").textContent=percent+"% من خطوات الرحلة";
+
+ let message="ابدئي أول تحدٍ لتظهري تقدمك هنا.";
+ if(total>0)message="أحسنتِ! بدأتِ رحلتك بالفعل، وكل نشاط جديد يضيف إلى تقدمك.";
+ if(total>=5)message="تقدم جميل! أنجزتِ عدة خطوات في رحلتك مع الذاكرة.";
+ if(total>=10)message="رائع! وصلتِ إلى إنجاز مميز في رحلتك المعرفية.";
+
+ document.getElementById("progressMessage").textContent=message;
+ document.getElementById("journeyMessage").textContent=total>=10
+ ?"لقد صنعتِ لنفسك سجلًا رائعًا من التعلم والتجربة. استمري في اكتشاف المزيد!"
+ :"استمري في التجربة والتدوين والتعلم. التقدم يبدأ بخطوة صغيرة.";
+
+ const badges=[
+  {title:"بداية الرحلة",description:"إكمال أول تحدٍ من ألعاب الذاكرة",symbol:"★",earned:stats.games>=1},
+  {title:"ذاكرة نشيطة",description:"إكمال خمسة تحديات من ألعاب الذاكرة",symbol:"✦",earned:stats.games>=5},
+  {title:"محبة المعرفة",description:"إكمال أول اختبار للمجلة",symbol:"✓",earned:stats.quizzes>=1},
+  {title:"متفوقة",description:"الحصول على الدرجة الكاملة في الاختبار",symbol:"◆",earned:best===5},
+  {title:"صاحبة الأفكار",description:"حفظ أول ملاحظة في مفكرة العقل",symbol:"✎",earned:entries.length>=1},
+  {title:"كاتبة المفكرة",description:"حفظ خمس ملاحظات في المفكرة",symbol:"▤",earned:entries.length>=5},
+  {title:"رحلة مستمرة",description:"إكمال عشرة أنشطة متنوعة",symbol:"♧",earned:total>=10}
+ ];
+
+ document.getElementById("badgesGrid").innerHTML=badges.map(function(badge){
+  return '<div class="badge-card '+(badge.earned?'':'locked')+'">'+
+   '<div class="badge-symbol">'+badge.symbol+'</div>'+
+   '<div><h3>'+badge.title+'</h3><p>'+badge.description+'</p>'+
+   '<p><strong>'+(badge.earned?'تم الحصول عليها':'لم تُفتح بعد')+'</strong></p></div>'+
+   '</div>';
+ }).join("");
+}
+
+startQuiz();
+
+</script>
+</body>
+</html>
